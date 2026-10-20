@@ -16,17 +16,17 @@ I developed the assistant experience and the integration that brings its interfa
 
 ## How to use it
 
-| Input | Action |
-| --- | --- |
-| Drag | Rotate the orb |
-| Scroll or pinch | Zoom in or out |
-| Pinch one hand and move | Rotate the orb |
-| Pinch both hands and spread or close | Zoom in or out |
-| `G` | Toggle hand gestures |
-| `R` | Reset the view |
-| `+` / `-` | Zoom in or out |
-| `V` | Start or stop voice recording |
-| “Hi Ultron” / “Hey Ultron” | Wake phrase in supported browsers |
+| Input                                | Action                            |
+| ------------------------------------ | --------------------------------- |
+| Drag                                 | Rotate the orb                    |
+| Scroll or pinch                      | Zoom in or out                    |
+| Pinch one hand and move              | Rotate the orb                    |
+| Pinch both hands and spread or close | Zoom in or out                    |
+| `G`                                  | Toggle hand gestures              |
+| `R`                                  | Reset the view                    |
+| `+` / `-`                            | Zoom in or out                    |
+| `V`                                  | Start or stop voice recording     |
+| “Hi Ultron” / “Hey Ultron”           | Wake phrase in supported browsers |
 
 ## Run the web app
 
@@ -55,6 +55,10 @@ The Python bridge is optional. To enable desktop actions:
 
 The desktop actions can control the computer running the bridge. Review their permissions before enabling the bridge, and run it locally rather than exposing it as a public service. Keep `.env.local`, `Mark-L-main/config/api_keys.json`, certificates, and personal memory files local; they are excluded from Git.
 
+## More assistant capabilities
+
+For more of the assistant features and implementation details, see my companion project, [Jarvis-Mark-L](https://github.com/ShashankCodeX/Jarvis-Mark-L), and its [README](https://github.com/ShashankCodeX/Jarvis-Mark-L/blob/main/readme.md). It covers real-time voice conversations, typed commands, web and information search, desktop and browser controls, screen and camera questions, file and code assistance, reminders, persistent preferences, and a remote-control dashboard.
+
 ## Project files
 
 - `app/` — Next.js page, layout, and assistant API route.
@@ -67,4 +71,4 @@ The desktop actions can control the computer running the bridge. Review their pe
 
 The visual UI is inspired by [Sagar Tamang's ULTRON Orb UI](https://sagartamang.com/projects/ultron).
 
-The root [LICENSE](LICENSE) covers the MIT-licensed UI. The bundled `Mark-L-main/` source is by FatihMakes ([source](https://github.com/FatihMakes/Mark-LVI)) and is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), not the root MIT license; commercial use of that source is not permitted. Its attribution and license are also documented in [Mark-L-main/readme.md](Mark-L-main/readme.md).
+The root [LICENSE](LICENSE) covers the MIT-licensed UI. The bundled `Mark-L-main/` source is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), not the root MIT license; commercial use of that source is not permitted. Its attribution and license are also documented in [Mark-L-main/readme.md](Mark-L-main/readme.md).
