@@ -1,0 +1,41 @@
+# dependencies
+/node_modules
+Mark-L-main/venv/
+Mark-L-main/.venv/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files
+.env*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Python-generated files and local runtime data
+__pycache__/
+*.py[cod]
+Mark-L-main/browser-cache/
+Mark-L-main/config/api_keys.json
+Mark-L-main/config/certs/
+Mark-L-main/memory/*.json
+Mark-L-main/INSTALLATION_COMPLETE.md
+
+# Local assistant/editor instructions
+/AGENTS.md
+/CLAUDE.md
