@@ -1,35 +1,20 @@
 # ULTRON
 
-ULTRON combines a browser-based 3D assistant interface, webcam hand-gesture controls, and a Gemini-powered voice and text assistant. The web app is built with Next.js, React, Three.js, and MediaPipe. An optional local Python bridge connects the interface to the desktop actions in `Mark-L-main`.
+ULTRON is my interactive AI-assistant project, combining a browser-based 3D interface, webcam hand-gesture controls, and a Gemini-powered voice and text assistant. I developed the web app with Next.js, React, Three.js, and MediaPipe, and connected it to an optional local Python assistant bridge.
 
 ![ULTRON orb interface](docs/screenshot.png)
 
-## What is included
+## My work
 
-### 3D assistant interface
+I developed the assistant experience and the integration that brings its interface, gesture input, and AI actions together:
 
-- Animated Three.js orb with layered wireframe shells, a spiral core, orbiting details, floating code, dust, and scan rings.
-- Bloom and chromatic-aberration post-processing with a full-screen HUD.
-- Mouse and touch controls for rotating and zooming the scene.
+- **Hand-gesture interaction:** I implemented webcam hand tracking with MediaPipe for up to two hands. Pinching and moving one hand rotates the orb; pinching with both hands and spreading or closing them zooms. Hysteresis and smoothing make the controls less jittery, and tracking falls back from GPU to CPU when needed.
+- **Assistant connection:** I connected the UI to Gemini for typed and recorded voice prompts, with spoken responses and a wake phrase in supported browsers.
+- **Local agent integration:** I added an optional Python bridge that passes Gemini tool calls to desktop-assistant actions. The bridge runs locally; the web-only fallback can answer prompts but cannot execute desktop actions.
+- **Interactive 3D experience:** I integrated the Three.js orb with mouse, touch, keyboard, and gesture controls, alongside the HUD and animated visual effects.
+- **Privacy and safety details:** Webcam tracking is performed in the browser and does not send camera frames to the assistant API. Camera and microphone access are requested only when their respective features are used.
 
-### Hand-gesture controls
-
-- MediaPipe HandLandmarker tracks up to two hands using the browser webcam.
-- Pinch and move one hand to rotate the orb; pinch with both hands and spread or close them to zoom.
-- Pinch hysteresis and motion smoothing help reduce tracking jitter.
-- Tracking tries the GPU delegate first and falls back to CPU if the browser cannot initialize it.
-- Camera access is only requested when gestures are enabled. Hand tracking runs in the browser; video frames are not sent to the assistant API.
-
-### Voice, text, and assistant integration
-
-- Send typed prompts or record a short voice prompt from the interface.
-- Hear responses through browser speech synthesis; supported browsers can also listen for “Hi Ultron” or “Hey Ultron.”
-- The `/api/ask` route first tries the optional local Python bridge. When configured, the bridge uses Gemini function calls to invoke available desktop-assistant actions.
-- If the bridge is not configured or cannot be used, the route falls back to Gemini text/audio responses. That fallback does not perform the local desktop actions.
-
-The optional desktop actions can interact with the computer running the bridge. Review the Python assistant's actions and permissions before enabling it, and run it locally rather than exposing it as a public service.
-
-## Controls
+## How to use it
 
 | Input | Action |
 | --- | --- |
@@ -68,7 +53,7 @@ The Python bridge is optional. To enable desktop actions:
 2. Provide the local Python executable, the directory containing `main.py`, and the path to `ultron_bridge.py` through `MARK_L_PYTHON`, `MARK_L_ROOT`, and `MARK_L_BRIDGE` in `.env.local`.
 3. Configure the Gemini key for the Python assistant using its local configuration instructions.
 
-Keep `.env.local`, `Mark-L-main/config/api_keys.json`, certificates, and personal memory files local. They are excluded from Git.
+The desktop actions can control the computer running the bridge. Review their permissions before enabling the bridge, and run it locally rather than exposing it as a public service. Keep `.env.local`, `Mark-L-main/config/api_keys.json`, certificates, and personal memory files local; they are excluded from Git.
 
 ## Project files
 
@@ -78,8 +63,8 @@ Keep `.env.local`, `Mark-L-main/config/api_keys.json`, certificates, and persona
 - `lib/handTracker.ts` — webcam hand detection and gesture mapping.
 - `Mark-L-main/` — Python assistant source and optional bridge.
 
-## Credits and licenses
+## Inspiration and licenses
 
-The orb interface is based on the ULTRON Orb UI by [Sagar Tamang](https://sagartamang.com/projects/ultron), licensed under MIT; see [LICENSE](LICENSE).
+The visual UI is inspired by [Sagar Tamang's ULTRON Orb UI](https://sagartamang.com/projects/ultron).
 
-The `Mark-L-main/` assistant source is by [FatihMakes](https://github.com/FatihMakes/Mark-LVI) and is licensed under [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/). It is not covered by the root MIT license. See [Mark-L-main/readme.md](Mark-L-main/readme.md) for its attribution and license details. Commercial use of that source is not permitted by its license.
+The root [LICENSE](LICENSE) covers the MIT-licensed UI. The bundled `Mark-L-main/` source is by FatihMakes ([source](https://github.com/FatihMakes/Mark-LVI)) and is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/), not the root MIT license; commercial use of that source is not permitted. Its attribution and license are also documented in [Mark-L-main/readme.md](Mark-L-main/readme.md).
